@@ -1,9 +1,9 @@
 \chapter{Finding New Sources in POSSUM Data}
 \label{ch: sourcefinding}
 
-The following chapter describes my investigation into a possible cause for the lack of rotation measure found within the diffuse emission of the Galactic plane and trialling a potential solution. This investigation was carried out on data produced by the POSSUM collaboration and the field chosen was EMU1505-60. This field was chosen as it crossed a significant amount of Galactic plane compared to the other fields available.
+The following chapter describes my investigation into a possible cause for the lack of rotation measure sources found within the diffuse emission of the Galactic plane and trialling a potential solution. This investigation was carried out on data produced by the POSSUM collaboration and the field chosen was EMU1505-60 (the range in right ascension and declination of this field are shown in Figure \ref{fig: validation_selavy}). This field was chosen as it crossed a significant amount of Galactic plane compared to the other fields available.
 
-One possible reason for the low RM density in along the Galactic plane is that the areas covered by diffuse emission that spreads across the Galactic plane is interpreted as regions of low signal to noise ratio by the source finder. This results in fewer sources being detected in these regions and thus fewer RM. Another possibility is that the sources within the Galactic plane are depolarised, so their RM is more difficult to detect. This research focuses on addressing the first reason and devising a method to reduce noise and increase the source density.
+One possible reason for the low RM source density in along the Galactic plane is that the areas covered by diffuse emission that spreads across the Galactic plane is interpreted as regions of low signal to noise ratio by the source finder. This results in fewer overall sources being detected in these regions and thus fewer RM sources. Another possibility is that the sources within the Galactic plane are depolarised, so their RM is more difficult to detect. This research focuses on addressing the first reason and devising a method to reduce noise and increase the source density.
 
 %pretty sure thats not quite right and that last sentence needs work! also i think this should be in the introduction
 
@@ -18,17 +18,17 @@ In order to complete any analysis of sources within radio interferometric data, 
 As part of the ASKAP Observatory pipeline which is run on each POSSUM field prior to data release, a source list for the field was generated using the the source finding software Selavy (\cite{Selavy_Whiting_2012}). This found a total of 10881 components, which can be seen in Figure \ref{fig: validation_selavy}. These point sources are mostly radio galaxies, but there are other extended sources such as a pulsar wind nebula and multiple supernova remnants, most notably the supernova remnant MSH 15-22 (see Figure \ref{fig:sn remnant}) that have been detected as groups of point sources. 
 
 
-\begin{figure}
+\begin{sidewaysfigure}
 
-\includegraphics[width=\linewidth]{Thesis_Template/Figures/validation_sourcefinder.png}
-\caption{Source catalogue output by Selavy as part of ASKAP Observatory pipeline, produced by \cite{validation}, with each point mapped as a red dot, and the intensity of the field image shown by the grey scale}
+\includegraphics[width=0.8\linewidth]{Thesis_Template/Figures/validation_sourcefinder.png}
+\caption[Source catalogue produced by ASKAP Observatory pipeline]{Source catalogue output by Selavy as part of ASKAP Observatory pipeline for field EMU1505-60, produced by \cite{validation}, with each point mapped as a red dot, and the intensity of the field image shown by the grey scale}
 \label{fig: validation_selavy}
-\end{figure}
+\end{sidewaysfigure}
 
 \begin{figure}
     \centering
-    \includegraphics[width=\linewidth]{Thesis_Template/Figures/MSH22-15 hires.png}
-    \caption{Zoomed in image of the supernova remnant MSH 15-22 in the hires image using an asinh greyscale which runs from linear near zero and logarithmic for bright emission to highlight all the structure within the nebula}
+    \includegraphics[width=\linewidth]{Thesis_Template/Figures/EMU_1505-60_hi.fits-image-2025-04-24-17-38-58.png}
+    \caption[Supernova remnant MSH 15-22]{Zoomed in image of the supernova remnant MSH 15-22 in the hires image using an asinh greyscale which runs from linear near zero and logarithmic for bright emission to highlight all the structure within the nebula}
     \label{fig:sn remnant}
 \end{figure}
 
@@ -38,8 +38,8 @@ Much like in Figure \ref{fig: Shannon's RM grids}, it is apparent in Figure \ref
 
 \begin{figure}
     \centering
-    \includegraphics[width=1\linewidth]{Thesis_Template//Figures/selavy_source_density.png}
-    \caption{Source Density Comparison of Selavy catalogue between on and off the Galactic Plane}
+    \includegraphics[width=1\linewidth]{Thesis_Template//Figures/source_density_comparison.png}
+    \caption[Source density comparison between on and off the Galactic Plane]{Source Density Comparison of Selavy catalogue between on and off the Galactic Plane}
     \label{fig:source density in selavy}
 \end{figure}
 
@@ -54,16 +54,16 @@ When I began this process, I decided to use the higher resolution image produced
 
 \begin{figure}
     \centering
-    \includegraphics[width=1\linewidth]{Thesis_Template//Figures/high_res_crop.png}
-    \caption{Cropped high resolution image of the EMU1505-60 field.}
+    \includegraphics[width=1\linewidth]{Thesis_Template/Figures/hires_crop.png}
+    \caption[Cropped high resolution image of the EMU1505-60 field.]{Cropped high resolution image of the EMU1505-60 field, highlighting the difference in noise between this and the low resolution image.}
     \label{fig: high res}
 \end{figure}
 
 
 \begin{figure}
 
-\includegraphics[width=1\linewidth]{Thesis_Template/Figures/lo.png}
-\caption{Low resolution, or standard, image of field EMU1505-60.}
+\includegraphics[width=1\linewidth]{Thesis_Template/Figures/lores_crop.png}
+\caption[Low resolution, or standard, image of field EMU1505-60.]{Low resolution, or standard, image of field EMU1505-60, highlighting the difference in noise between this and the high resolution image.}
 \label{fig: low_res}
 \end{figure}
 
@@ -73,9 +73,9 @@ The region around the edge of each individual POSSUM field has high noise due to
 
 \subsection{Masking}
 
-In order to suppress the diffuse galactic emission I used the AIPS program NINER to apply a peak finding filter. This served to highlight the point sources and reduced the apparent brightness of the large scale galactic structure. NINER works by convolving the image with a 3 x 3 matrix. 
+In order to suppress the diffuse galactic emission I used the AIPS program NINER to apply a peak finding filter. This served to highlight the point sources and reduced the apparent brightness of the large scale galactic structure. NINER works by convolving a 3 x 3 matrix with each cell of an image and its 8 nearest cells. 
 
-The matrix used was that shown below.
+The matrix used is shown below.
 
 
 \begin{equation}
@@ -89,14 +89,14 @@ The matrix used was that shown below.
     \label{eq: msk2}
 \end{equation}
 
-This process successfully suppressed the diffuse emission, leaving behind a field dominated by point sources (Figure \ref{fig: niner}). This does however greatly increase the noise, as this image has a background rms of $200 \,\mu{\rm Jy}$, which is almost six times that of the standard image. This affects the flux measured for each source. The next step was to use a source finding algorithm to locate these sources.
+\noindent This process successfully suppressed the diffuse emission, leaving behind a field dominated by point sources. The variation in the noise background can be seen in Figure \ref{fig: niner} to be greatly reduced, compared to both Figure \ref{fig: high res} and Figure \ref{fig: low_res}. This does however greatly increase the noise, as this image has a background rms of $200 \,\mu{\rm Jy}$, which is almost six times that of the standard image. This affects the flux measured for each source. The next step was to use a source finding algorithm to locate these sources.
 
 % ppp add figure of niner result
 
 \begin{figure}
     \centering
     \includegraphics[width=1\linewidth]{Thesis_Template/Figures/niner.png}
-    \caption{A zoom in of the NINER output image showing the point sources highlighted by this convolution process}
+    \caption[NINER output]{A zoom in of the NINER output image showing the point sources highlighted by this convolution process}
     \label{fig: niner}
 \end{figure}
 
@@ -117,8 +117,8 @@ As the final step towards producing the improved source list, I ran PyBDSF on th
 
 \begin{figure}
     \centering
-    \includegraphics[width=\linewidth]{Thesis_Template/Figures/PyBDSF_sources.png}
-    \caption{All sources found by the PyBDSF source finding algorithm when run on the reprocessed image}
+    \includegraphics[width=\linewidth]{Thesis_Template/Figures/pybdsf_catalogue_legend.png}
+    \caption[All sources found by PyBDSF]{All sources found by the PyBDSF source finding algorithm when run on the reprocessed image}
     \label{fig:pybdsf sourcelist}
 \end{figure}
 
@@ -134,35 +134,35 @@ To make a useful comparison I have focused my comparative efforts on the region 
 \begin{figure}
 
 \includegraphics[width=0.9\linewidth]{Thesis_Template/Figures/comparison region.png}
-\caption{\small Region within field EMU1505-60 chosen for comparison between the source list produced for this project and the source list produced as part of the observatory pipeline for the field.}
+\caption[Region chosen for source list comparison]{\small Region within field EMU1505-60 chosen for comparison between the source list produced for this project and the source list produced as part of the observatory pipeline for the field.}
 \label{fig: comparison_blank}
 \end{figure}
 
 Within this comparison region, the Selavy catalogue contains 650 sources, whereas the PyBDSF catalogue contains 854 sources. This shows a significant increase in sources detected within the Galactic plane.
 
-I then assessed whether the sources were aligned between the two catalogues. To do this, I converted the position from Right Ascension and Declination into Cartesian coordinates for each source in the comparison region. I then calculated the separation between each pair of sources between the catalogues. I considered each pair of sources that are within 5 arcseconds of each other to be the same source. By pairing the sources in this way I found that there were sources from both catalogues which didn't appear to have a match by this method. There were 509 sources that were found by PyBDSF and not Selavy, which can be seen in Figure \ref{fig: pybdsf not match}, and 345 sources that were found by Selavy but not PyBDSF, which can be seen in Figure \ref{fig: selavy not match}. The sources that were not found by PyBDSF in this region are mainly within areas of the comparison region that do not have much diffuse emission, and the opposite is true for the sources not found in the Selavy catalogue. This suggests that the method culminating in the PyBDSF source catalogue has successfully increased source finding within the diffuse emission of the Galactic plane.
+I then assessed whether the sources were aligned between the two catalogues. To do this, I converted the position from Right Ascension and Declination into Cartesian coordinates for each source in the comparison region. I then calculated the separation between each pair of sources between the catalogues. I considered each pair of sources that are within 5 arcseconds of each other to be the same source. This separation was estimated manually to be a suitable estimation to distinguish sources. By pairing the sources in this way I found that there were sources from both catalogues which did not appear to have a match by this method. There were 509 sources that were found by PyBDSF and not Selavy, which can be seen in Figure \ref{fig: pybdsf not match}, and 345 sources that were found by Selavy but not PyBDSF, which can be seen in Figure \ref{fig: selavy not match}. The sources that were not found by PyBDSF in this region are mainly within areas of the comparison region that do not have much diffuse emission, and the opposite is true for the sources not found in the Selavy catalogue. This suggests that the method culminating in the PyBDSF source catalogue has successfully increased source finding within the diffuse emission of the Galactic plane.
 
 \begin{figure}
     \centering
     \includegraphics[width=\linewidth]{Thesis_Template/Figures/Py match.png}
-    \caption{Sources in the PyBDSF catalogue that were not within 5 arcseconds of a source in the Selavy catalogue}
+    \caption[PyBDSF only sources]{Sources in the PyBDSF catalogue that were not within 5 arcseconds of a source in the Selavy catalogue}
     \label{fig: pybdsf not match}
 \end{figure}
 
 \begin{figure}
     \centering
     \includegraphics[width=\linewidth]{Thesis_Template/Figures/sel match.png}
-    \caption{Sources in the Selavy catalogue that were not within 5 arcseconds of a source in the PyBDSF catalogue}
+    \caption[Selavy only sources]{Sources in the Selavy catalogue that were not within 5 arcseconds of a source in the PyBDSF catalogue}
     \label{fig: selavy not match}
 \end{figure}
 
-I also calculated the source density both on and off the Galactic plane in the same regions used for this calculation on the Selavy catalogue. This showed great improvement in source density for the region in within the diffuse emission, with a density of 249 sources per square degree. This is over a 200$\%$ increase from the Selavy catalogue. There was, however, a decrease in source density off the Galactic plane, with a source density of 101 sources per square degree.
+I also calculated the source density both on and off the Galactic plane in the same regions used for this calculation on the Selavy catalogue. This showed great improvement in source density for the region within the diffuse emission, with a density of 249 sources per square degree. This is over a 200$\%$ increase from the Selavy catalogue. There was, however, a decrease in source density off the Galactic plane, with a source density of 101 sources per square degree.
 
 It is also worth noting that there is an over-density of PyBDSF sources in the bright region of the supernova remnant MSH15-22 and in the nebula at RA 15:03 and Dec -58:50. The source finder has mistaken bright emission peaks within the structure of the nebula for extragalactic sources. How the sources have been assigned to this nebula's structure can be seen in finer detail in Figure \ref{fig: snr sources}. Cases where sources are just peaks in brightness within the diffuse emission have been identified and removed from the catalogue via manual inspection.
 
 \begin{figure}
     \centering
-    \includegraphics[width=\linewidth]{Thesis_Template/Figures/MSH15-22 sources.png}
+    \includegraphics[width=\linewidth]{Thesis_Template/Figures/EMU_1505-60_hi.fits-image-2025-04-24-17-41-48.png}
     \caption{The supernova remnant MSH 15-22 with the 'sources' identified by PyBDSF}
     \label{fig: snr sources}
 \end{figure}
@@ -170,12 +170,12 @@ It is also worth noting that there is an over-density of PyBDSF sources in the b
 \begin{figure}
     \centering
     \includegraphics[width=\linewidth]{Thesis_Template/Figures/unmatched histogram.png}
-    \caption{Histogram of flux densities for both source finding algorithms, with nebulae brightness peaks removed}
+    \caption[Histogram of flux densities for both source finding algorithms]{Histogram of flux densities for both source finding algorithms, with nebulae brightness peaks removed}
     \label{fig: unmatched histogram}
 \end{figure}
 
 Another point of interest, demonstrated in Figure \ref{fig: unmatched histogram}, is that the Selavy catalogue includes significantly more fainter sources, whereas the PyBDSF catalogue has found fewer faint sources but more sources. This histogram excludes the peaks in the brightness of the diffuse emission of the nebulae.
 
-These results demonstrate that the diffuse emission is being interpreted as noise by the source finding algorithm, as this method of convolving the image to smooth the image over the 3 x 3 matrix and highlight point sources has been successful in producing more sources within the Galactic plane. However, this method has been found to decrease source detection within areas without diffuse emission. This is because the the gradient mask highlights sources with a large gradient, which highlights bright sources, but suppresses fainter sources which makes them less visible than they would normally be visible in areas with low noise or no diffuse emission. This means that this method alone is not the optimal method for source finding over all fields and a combination between the initial source finding and this method should be employed.
+These results demonstrate that the diffuse emission is being interpreted as noise by the source finding algorithm, as convolving the image to smooth the image over the 3 x 3 matrix to highlight point sources has been successful in producing more sources within the Galactic plane. However, this convolution decreases source detection within areas without diffuse emission. This is because the gradient mask highlights sources with a large gradient, which highlights bright sources, but suppresses fainter sources which makes them less visible than they would normally be visible in areas with low noise or no diffuse emission. This means that convolution alone is not the optimal method for source finding over all fields and a combination between the initial source finding and this method should be employed.
 
 These additional sources detected within the Galactic plane can then be used to conduct RM synthesis and thus find more RM within the Galactic plane, which will allow insight into the magnetic field of this rapidly varying region of the Milky Way. The next chapter details my implementation of the POSSUM polarimetry analysis pipeline to perform RM synthesis and the results it yielded.

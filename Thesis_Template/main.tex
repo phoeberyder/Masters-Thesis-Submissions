@@ -119,6 +119,12 @@ twoside,
 \usepackage{amssymb}
 \usepackage{xcolor}
 
+\usepackage{graphicx}
+\usepackage{rotating}
+
+% \usepackage[backend=biber, style=authoryear, sorting=nyt]{biblatex}
+% \addbibresource{Bibliography.bib}
+
 \usepackage{listings}
 \usepackage{textcomp}
 \definecolor{listinggray}{rgb}{225,224, 224}
@@ -317,7 +323,7 @@ twoside,
 {\bcf ASKAP} & {\bcf A}ustralian {\bcf S}quare {\bcf K}ilometre {\bcf A}rray {\bcf P}athfinder\\
 {\bcf EMU} & {\bcf E}volutionary {\bcf M}ap of the {\bcf U}niverse \\
 {\bcf FD} & {\bcf F}araday {\bcf D}epth \\
-{\bcf FDF} & {F}araday {\bcf D}ispersion {\bcf F}unction \\
+{\bcf FDF} & {\bcf F}araday {\bcf D}ispersion {\bcf F}unction \\
 {\bcf ISM} & {\bcf I}nter- {\bcf S}tellar {\bcf M}edium\\
 {\bcf MADFM} & {\bcf M}edian {\bcf A}bsolute {\bcf D}eviation {\bcf F}from the {\bcf M}edian\\
 {\bcf MHD} & {\bcf M}agneto- {\bcf H}ydro- {\bcf D}ynamics\\
@@ -328,7 +334,7 @@ twoside,
 {\bcf POSSUM} & {\bcf PO}olarisation {\bcf S}ky {\bcf S}urvey of the {\bcf U}niverse's {\bcf M}agnetism\\
 {\bcf RM} & {\bcf R}otation {\bcf M}easure\\
 {\bcf RMSF} & {\bcf R}otation {\bcf M}easure {\bcf S}pread {\bcf F}unction\\
-{\bcf SNR} & {S}ignal to {\bcf N}oise {\bcf R}atio \\
+{\bcf SNR} & {\bcf S}ignal to {\bcf N}oise {\bcf R}atio \\
 {\bcf WSRT} & {\bcf W}esterbork {\bcf S}ynthesis {\bcf R}adio {\bcf T}elescope\\
 
 
@@ -376,8 +382,8 @@ twoside,
 
 \begin{abstract}
 \addchaptertocentry{\abstractname} % Add the abstract to the table of contents
-Faraday rotation measures (RM) of extragalactic radio sources are key for understanding astrophysical magnetic fields (\cite{Beck_Bfield_Rev_2015}). ASKAP’s Polarisation Sky Survey of the Universe’s Magnetism (POSSUM) is measuring around 1 million RM. The density of these measurements in fields containing a high proportion of the Galactic plane is $\approx$ 60 
-$\%$ less compared to fields at higher Galactic latitudes (\cite{vanderwoude2024prototypefaradayrotationmeasure}). This dissertation describes work done to increase the density of RM within complex diffuse emission of the Galactic plane. The test field EMU1505-60 was re-imaged to suppress the diffuse emission and the sources were located by the source-finding algorithm PyBDSF. The POSSUM Analysis Pipeline, which utilises the RM tools package \cite{RMtools}, was used to perform RM synthesis on these sources, producing an RM catalogue for this field. The construction of an RM grid using this catalogue showed a rapid variation between $600$ and -$600 \,{\rm rad/m^2}$ across the field. Using this catalogue, structure function analysis was carried out to investigate the variance of the RM at different angular scales, concluding that there is a large variance between RM in this field, which increases over increasing angular scales. These results show the magnetic field of the Milky Way along the Galactic plane varies on scales of $10\,{\rm pc}$. The polarisation of the diffuse emission was also investigated using 3D RM synthesis techniques. Further inspection was also carried out on depolarisation canals, found during this investigation, by creating a gradient map to visualise the direction and magnitude of the gradient across the RM map and by mapping multiple peaks found within the map.
+Faraday rotation measures (RM) of extragalactic radio sources are key for understanding astrophysical magnetic fields (\cite{Beck_Bfield_Rev_2015}). ASKAP’s Polarisation Sky Survey of the Universe’s Magnetism (POSSUM) is measuring around 1 million RM. The density of these measurements in observational fields containing a high proportion of the Galactic plane is $\approx$ 60 
+$\%$ less compared to fields at higher Galactic latitudes (\cite{vanderwoude2024prototypefaradayrotationmeasure}). This dissertation describes work done to increase the density of RM with lines of sight through complex diffuse emission of the Galactic plane. The observational test field EMU1505-60 was re-imaged to suppress the diffuse emission and the sources were located by the source-finding algorithm PyBDSF. The POSSUM Analysis Pipeline, which utilises the RM tools package \cite{RMtools}, was used to perform RM synthesis on these sources, producing an RM catalogue for this field. The construction of an RM grid using this catalogue showed a rapid variation between $600$ and -$600 \,{\rm rad/m^2}$ across the field. Using this catalogue, structure function analysis was carried out to investigate the variance of the RM at different angular scales, concluding that there is a large variance in RM acros this field, which increases over increasing angular scales. These results show the magnetic field of the Milky Way along the Galactic plane varies on scales of $10\,{\rm pc}$. The polarisation of the diffuse emission was also investigated using 3D RM synthesis techniques. Further inspection was also carried out on depolarisation canals, found during this investigation, by creating a gradient map to visualise the direction and magnitude of the gradient across the RM map and by mapping multiple peaks found within the map. This analysis highlighted the detail with which we can probe RM and polarised intensity maps produced by POSSUM. 
 \end{abstract}
 
 %----------------------------------------------------------------------------------------
@@ -540,7 +546,7 @@ My research experience began at school, with my HPQ project which really cemente
 
 % \printbibliography[heading=bibintoc]
 \label{Bibliography}  % Change the left side page header to "Bibliography"
-\bibliographystyle{unsrtnat}  % Use the "unsrtnat" BibTeX style for formatting the Bibliography
+\bibliographystyle{apalike}  % Use the "unsrtnat" BibTeX style for formatting the Bibliography
 \bibliography{Bibliography}
 
 %----------------------------------------------------------------------------------------
