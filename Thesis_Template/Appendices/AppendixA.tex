@@ -1,0 +1,40 @@
+% Appendix A
+
+
+
+\chapter{3D Pipeline Output} % Main appendix title
+\label{AppA: 3D pipeline output}
+
+\begin{center}
+\begin{tabular}{||c|p{10cm}||} 
+ \hline
+snrPIfit & Signal to noise ratio in the fitted polarised intensity. Calculated as the ratio of polarised intensity to theoretical noise without bias correction \\ 
+\hline
+ polAngle0Fitdeg & Derotated polarisation angle (i.e. angle at point of emission) calculated by subtracting phiPeakPIchanrm2$\times$lamsq0 from polarisation angle \\ 
+ \hline
+ phiPeakPIfitrm2 & Faraday depth found by fitting the peak \\
+ \hline
+ peakFDFrealFit & Stokes Q value at the fitted Faraday depth of the peak, calculated by interpolating between adjacent samples \\
+ \hline
+peakFDFimagFit & Stokes Q value at the fitted Faraday depth of the peak, calculated by interpolating between adjacent samples \\
+ \hline
+minfreq & Minimum frequency used in RM synthesis \\ 
+ \hline
+ medianchannelwidths & Typical channel width, calculated by assuming that most channels are adjacent to each other \\
+ \hline
+ maxfreq & Maximum frequency used in RM synthesis \\
+ \hline
+ lam0sqm2 & The weighted average of the wavelength squared values of the channels used in the RM synthesis as per \cite{Brentjens_2005}. This minimises polarisation angle swings between samples so all angle in the Faraday depth spectrum correspond to this value of wavelength squared \\
+ \hline
+ dPolAngle0Fit & error in polAngle0Fit \\
+ \hline
+ dPhiPeakPIfit & error in peak Faraday depth \\
+ \hline
+ dFDFcorMAD & Estimated noise in the Faraday depth spectrum, computed using the median deviation from the median (MADFM) of polarised intensity in the spectrum and then correcting to be equivalent to a Gaussian sigma \\
+ \hline
+ dAmpPeakPIfit & error in polarised intensity equal to dFDFth \\
+ \hline
+ ampPeakPIfitEff & polarised intensity found by fitting the peak corrected for polarisation bias if snrPIfit > 5. Correction formula is $PI_{eff} = \sqrt{PI^2 - 2.3\times dFDFth^2}$ \\
+ \hline
+\end{tabular}
+\end{center}

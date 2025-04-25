@@ -1,0 +1,548 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Masters/Doctoral Thesis 
+% LaTeX Template
+% Version 2.5 (27/8/17)
+%
+% This template was downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Version 2.x major modifications by:
+% Vel (vel@latextemplates.com)
+%
+% This template is based on a template by:
+% Steve Gunn (http://users.ecs.soton.ac.uk/srg/softwaretools/document/templates/)
+% Sunil Patel (http://www.sunilpatel.co.uk/thesis-template/)
+%
+% Template license:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\aj}{Astronomical Journal}
+\newcommand{\actaa}{Acta Astronomica}
+\newcommand{\araa}{Annual Review of Astron and Astrophys}
+\newcommand{\apj}{Astrophysical Journal}
+\newcommand{\apjl}{Astrophysical Journal, Letters}
+\newcommand{\apjs}{Astrophysical Journal, Supplement}
+\newcommand{\ao}{Applied Optics}
+\newcommand{\apss}{Astrophysics and Space Science}
+\newcommand{\aap}{Astronomy and Astrophysics}
+\newcommand{\aapr}{Astronomy and Astrophysics Reviews}
+\newcommand{\aaps}{Astronomy and Astrophysics, Supplement}
+\newcommand{\azh}{Astronomicheskii Zhurnal}
+\newcommand{\baas}{Bulletin of the AAS}
+\newcommand{\caa}{Chinese Astronomy and Astrophysics}
+\newcommand{\cjaa}{Chinese Journal of Astronomy and Astrophysics}
+\newcommand{\icarus}{Icarus}
+\newcommand{\jcap}{Journal of Cosmology and Astroparticle Physics}
+\newcommand{\jrasc}{Journal of the RAS of Canada}
+\newcommand{\memras}{Memoirs of the RAS}
+\newcommand{\mnras}{Monthly Notices of the RAS}
+\newcommand{\na}{New Astronomy}
+\newcommand{\nar}{New Astronomy Review}
+\newcommand{\pra}{Physical Review A: General Physics}
+\newcommand{\prb}{Physical Review B: Solid State}
+\newcommand{\prc}{Physical Review C}
+\newcommand{\prd}{Physical Review D}
+\newcommand{\pre}{Physical Review E}
+\newcommand{\prl}{Physical Review Letters}
+\newcommand{\pasa}{Publications of the Astron. Soc. of Australia}
+\newcommand{\pasp}{Publications of the ASP}
+\newcommand{\pasj}{Publications of the ASJ}
+\newcommand{\rmxaa}{Revista Mexicana de Astronomia y Astrofisica}
+\newcommand{\qjras}{Quarterly Journal of the RAS}
+\newcommand{\skytel}{Sky and Telescope}
+\newcommand{\solphys}{Solar Physics}
+\newcommand{\sovast}{Soviet Astronomy}
+\newcommand{\ssr}{Space Science Reviews}
+\newcommand{\zap}{Zeitschrift fuer Astrophysik}
+\newcommand{\nat}{Nature}
+\newcommand{\iaucirc}{IAU Cirulars}
+\newcommand{\aplett}{Astrophysics Letters}
+\newcommand{\apspr}{Astrophysics Space Physics Research}
+\newcommand{\bain}{Bulletin Astronomical Institute of the Netherlands}
+\newcommand{\fcp}{Fundamental Cosmic Physics}
+\newcommand{\gca}{Geochimica Cosmochimica Acta}
+\newcommand{\grl}{Geophysics Research Letters}
+\newcommand{\jcp}{Journal of Chemical Physics}
+\newcommand{\jgr}{Journal of Geophysics Research}
+\newcommand{\jqsrt}{Journal of Quantitiative Spectroscopy and Radiative Transfer}
+\newcommand{\memsai}{Mem. Societa Astronomica Italiana}
+\newcommand{\nphysa}{Nuclear Physics A}
+\newcommand{\physrep}{Physics Reports}
+\newcommand{\physscr}{Physica Scripta}
+\newcommand{\planss}{Planetary Space Science}
+\newcommand{\procspie}{Proceedings of the SPIE}
+
+\newcommand{\FRAT}{fast radio transient}
+\newcommand{\FRATs}{fast radio transients}
+\newcommand{\aalpha}{$\mathrm{a\Omega}$}
+
+\newcommand{\sched}{\texttt{Sched}}
+\newcommand{\difx}{\texttt{DiFX}}
+\newcommand{\xgpu}{\texttt{xGPU}}
+\newcommand{\wsc}{\texttt{WSClean}}
+\newcommand{\python}{{\tt python}}
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[
+11pt, % The default document font size, options: 10pt, 11pt, 12pt
+%oneside, % Two side (alternating margins) for binding by default, uncomment to switch to one side
+english, % ngerman for German
+onehalfspacing, % Single line spacing, alternatives: onehalfspacing or doublespacing
+%draft, % Uncomment to enable draft mode (no pictures, no links, overfull hboxes indicated)
+%nolistspacing, % If the document is onehalfspacing or doublespacing, uncomment this to set spacing in lists to single
+%liststotoc, % Uncomment to add the list of figures/tables/etc to the table of contents
+toctotoc, % Uncomment to add the main table of contents to the table of contents
+%parskip, % Uncomment to add space between paragraphs
+%nohyperref, % Uncomment to not load the hyperref package
+headsepline, % Uncomment to get a line under the header
+%chapterinoneline, % Uncomment to place the chapter title next to the number on one line
+%consistentlayout, % Uncomment to change the layout of the declaration, abstract and acknowledgements pages to match the default layout
+twoside,
+]{MastersDoctoralThesis} % The class file specifying the document structure
+
+\usepackage[utf8]{inputenc} % Required for inputting international characters
+\usepackage[T1]{fontenc} % Output font encoding for international characters
+
+\usepackage{mathpazo} % Use the Palatino font by default
+% \usepackage{fontspec}
+% \setmainfont{Bitstream Vera Sans}
+
+\usepackage{lscape}
+\usepackage{enumitem}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{xcolor}
+
+\usepackage{listings}
+\usepackage{textcomp}
+\definecolor{listinggray}{rgb}{225,224, 224}
+\definecolor{lbcolor}{rgb}{255, 255, 255}
+\lstset{
+        backgroundcolor=\color{lbcolor},
+        tabsize=4,
+        rulecolor=,
+        language=python,
+        basicstyle=\scriptsize,
+        upquote=true,
+        aboveskip={1.5\baselineskip},
+        columns=fixed,
+        showstringspaces=false,
+        extendedchars=true,
+        breaklines=true,
+        prebreak = \raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}},
+        frame=single,
+        showtabs=false,
+        showspaces=false,
+        showstringspaces=false,
+        identifierstyle=\ttfamily,
+        keywordstyle=\color{myblue},
+        commentstyle=\color{mypurple},
+        stringstyle=\color{mypink},
+}
+
+% \usepackage[backend=bibtex,style=authoryear,natbib=true]{biblatex} % Use the bibtex backend with the authoryear citation style (which resembles APA)
+
+\usepackage[authoryear]{natbib}
+\usepackage{longtable}
+\usepackage{comment}
+
+\usepackage{subcaption}
+\usepackage{caption}
+
+\DeclareMathSymbol{\shortminus}{\mathbin}{AMSa}{"39}
+
+%----------------------------------------------------------------------------------------
+%	COLOUR SETTINGS
+%----------------------------------------------------------------------------------------
+
+%% Heading colours
+\definecolor{frontmattercolor}{HTML}{660099}
+\definecolor{chaptercolor}{HTML}{0E1C36}
+\definecolor{sectioncolor}{HTML}{6B7FD7}
+\definecolor{subsectioncolor}{HTML}{496F5D}
+\definecolor{subsubsectioncolor}{HTML}{496F5D}
+
+%% This is something I just like to do, make a 
+%% nice setting for a fancy bold and italics option.
+%% You can choose to use it, or ditch it
+\definecolor{boldcolor}{HTML}{2A9D8F}
+\newcommand{\bcf}{\bf \color{boldcolor}}
+\newcommand{\icf}{\it \color{boldcolor}}
+
+%% Link colours
+\definecolor{urlcolor}{HTML}{496F5D}
+\definecolor{hyperlinkcolor}{HTML}{496F5D}
+\definecolor{citationcolor}{HTML}{496F5D}
+
+%% Set the heading colours
+% If you want your titles to be sans serif, put the \sffamily back in to the brackets
+\usepackage{sectsty}
+\chapterfont{\color{chaptercolor}}%\sffamily}
+\sectionfont{\color{sectioncolor}}%\sffamily}
+\subsectionfont{\color{subsectioncolor}}%\sffamily}
+\subsubsectionfont{\color{subsubsectioncolor}}%\sffamily}
+
+%% If you would like to insert a blank page
+%% in accordance with UoM rules use this command:
+% \UoMBlankPage
+
+
+% \addbibresource{LitReview.bib} % The filename of the bibliography
+
+\usepackage[autostyle=true]{csquotes} % Required to generate language-dependent quotes in the bibliography
+
+%----------------------------------------------------------------------------------------
+%	MARGIN SETTINGS
+%----------------------------------------------------------------------------------------
+
+\geometry{
+	paper=a4paper, % Change to letterpaper for US letter
+	inner=4.0cm,%1.8cm, % Inner margin
+	outer=1.5cm,%3.8cm, % Outer margin
+	bindingoffset=.5cm, % Binding offset
+	top=1.5cm, % Top margin
+	bottom=1.5cm, % Bottom margin
+	%showframe, % Uncomment to show how the type block is set on the page
+}
+
+%----------------------------------------------------------------------------------------
+%	THESIS INFORMATION
+%----------------------------------------------------------------------------------------
+
+\thesistitle{Enhancing Faraday Rotation Measurements along the Galactic Plane} % Your thesis title, this is used in the title and abstract, print it elsewhere with \ttitle
+\supervisor{Dr J.P. Leahy} % Your supervisor's name, this is used in the title page, print it elsewhere with \supname
+\examiner{} % Your examiner's name, this is not currently used anywhere in the template, print it elsewhere with \examname
+\degree{Master of Science by Research} % Your degree name, this is used in the title page and abstract, print it elsewhere with \degreename
+\author{Phoebe Ryder} % Your name, this is used in the title page and abstract, print it elsewhere with \authorname
+\addresses{} % Your address, this is not currently used anywhere in the template, print it elsewhere with \addressname
+
+\subject{An amazing science subject} % Your subject area, this is not currently used anywhere in the template, print it elsewhere with \subjectname
+\keywords{} % Keywords for your thesis, this is not currently used anywhere in the template, print it elsewhere with \keywordnames
+\university{\href{https://www.manchester.ac.uk/}{The University of Manchester}} % Your university's name and URL, this is used in the title page and abstract, print it elsewhere with \univname
+\department{\href{https://www.physics.manchester.ac.uk/}{Department of Physics and Astronomy in the School of Natural Sciences}} % Your department's name and URL, this is used in the title page and abstract, print it elsewhere with \deptname
+\group{\href{http://www.jodrellbank.manchester.ac.uk/}{Jodrell Bank Centre for Astrophysics}} % Your research group's name and URL, this is used in the title page, print it elsewhere with \groupname
+\faculty{\href{http://www.se.manchester.ac.uk/}{Faculty of Science and Engineering}} % Your faculty's name and URL, this is used in the title page and abstract, print it elsewhere with \facname
+
+\AtBeginDocument{
+\hypersetup{pdftitle=\ttitle} % Set the PDF's title to your title
+\hypersetup{pdfauthor=\authorname} % Set the PDF's author to your name
+\hypersetup{pdfkeywords=\keywordnames} % Set the PDF's keywords to your keywords
+}
+
+\newcommand{\changeurlcolor}[1]{\hypersetup{urlcolor=#1}}
+
+\begin{document}
+
+%\frontmatter % Use roman page numbering style (i, ii, iii, iv...) for the pre-content pages
+
+\pagestyle{plain} % Default to the plain heading style until the thesis style is called for the body content
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\begin{titlepage}
+\begin{center}
+\changeurlcolor{frontmattercolor}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\textwidth]{Figures/UoM_logo}
+\end{figure}
+
+ \vspace*{.01\textheight}
+% {\scshape\LARGE \univname\par}\vspace{1.5cm} % University name
+\textsc{\Large Master of Science by Research Dissertation}\\[0.5cm] % Thesis type
+
+\HRule \\[0.4cm] % Horizontal line
+{\huge \bfseries \textcolor{sectioncolor}{\ttitle}\par}\vspace{0.4cm} % Thesis title
+\HRule \\[1.5cm] % Horizontal line
+ 
+\begin{minipage}[t]{0.4\textwidth}
+\begin{flushleft} \large
+\emph{Author:}\\
+\href{www.VALIDLINK.com}{\authorname} % Author name - remove the \href bracket to remove the link
+\end{flushleft}
+\end{minipage}
+\begin{minipage}[t]{0.4\textwidth}
+\begin{flushright} \large
+\emph{Supervisor:} \\
+\href{www.VALIDLINK.com}{\supname} % Supervisor name - remove the \href bracket to remove the link  
+\end{flushright}
+\end{minipage}\\[3cm]
+ 
+\vfill
+
+\large \textit{A dissertation submitted to the University of Manchester\\ for the degree of \degreename}\\[0.3cm] % University requirement text
+\textit{in the}\\[0.4cm]
+\deptname\\\facname\\[2cm] % Research group name and department name
+ 
+\vfill
+
+{\large {\the\year}}\\[4cm] % Date
+%\includegraphics{Logo} % University/department logo - uncomment to place it
+ 
+\vfill
+
+\end{center}
+\end{titlepage}
+
+%----------------------------------------------------------------------------------------
+%	LIST OF CONTENTS/FIGURES/TABLES PAGES
+%----------------------------------------------------------------------------------------
+
+\tableofcontents % Prints the main table of contents
+
+\listoffigures % Prints the list of figures
+\addcontentsline{toc}{chapter}{List of Figures}
+
+%\listoftables % Prints the list of tables
+%\addcontentsline{toc}{chapter}{List of Tables}
+
+%----------------------------------------------------------------------------------------
+%	ABBREVIATIONS
+%----------------------------------------------------------------------------------------
+
+\begin{abbreviations}{ll} % Include a list of abbreviations (a table of two columns)
+\addcontentsline{toc}{chapter}{Abbreviations}
+\textcolor{white}{Blank line to prevent indent}\\
+
+
+{\bcf ASKAP} & {\bcf A}ustralian {\bcf S}quare {\bcf K}ilometre {\bcf A}rray {\bcf P}athfinder\\
+{\bcf EMU} & {\bcf E}volutionary {\bcf M}ap of the {\bcf U}niverse \\
+{\bcf FD} & {\bcf F}araday {\bcf D}epth \\
+{\bcf FDF} & {F}araday {\bcf D}ispersion {\bcf F}unction \\
+{\bcf ISM} & {\bcf I}nter- {\bcf S}tellar {\bcf M}edium\\
+{\bcf MADFM} & {\bcf M}edian {\bcf A}bsolute {\bcf D}eviation {\bcf F}from the {\bcf M}edian\\
+{\bcf MHD} & {\bcf M}agneto- {\bcf H}ydro- {\bcf D}ynamics\\
+{\bcf NVSS} & {\bcf N}RAO {\bcf V}LA {\bcf S}ky {\bcf S}urvey \\
+{\bcf PAF} & {\bcf P}hased {\bcf A}rray {\bcf F}eed\\
+{\bcf PI} & {\bcf P}olarised {\bcf I}ntensity \\
+{\bcf POGS} & {\bcf PO}olarisation {\bcf G}LEAM {\bcf S}urvey \\
+{\bcf POSSUM} & {\bcf PO}olarisation {\bcf S}ky {\bcf S}urvey of the {\bcf U}niverse's {\bcf M}agnetism\\
+{\bcf RM} & {\bcf R}otation {\bcf M}easure\\
+{\bcf RMSF} & {\bcf R}otation {\bcf M}easure {\bcf S}pread {\bcf F}unction\\
+{\bcf SNR} & {S}ignal to {\bcf N}oise {\bcf R}atio \\
+{\bcf WSRT} & {\bcf W}esterbork {\bcf S}ynthesis {\bcf R}adio {\bcf T}elescope\\
+
+
+
+
+
+
+\end{abbreviations}
+
+% %----------------------------------------------------------------------------------------
+% %	PHYSICAL CONSTANTS/OTHER DEFINITIONS
+% %----------------------------------------------------------------------------------------
+
+%\begin{constants}{lr@{${}={}$}l} % The list of physical constants is a three column table
+%\addcontentsline{toc}{chapter}{Physical Constants}
+
+% The \SI{}{} command is provided by the siunitx package, see its documentation for instructions on how to use it
+%\textcolor{white}{Blank line to prevent indent}\\
+%{\bcf Not an essential page.} &  & \\
+%Speed of Light & $c_{0}$ & \SI{2.99792458e8}{\meter\per\second} (exact)\\
+%Constant Name & $Symbol$ & $Constant Value$ with units\\
+
+%\end{constants}
+
+%----------------------------------------------------------------------------------------
+%	SYMBOLS
+%----------------------------------------------------------------------------------------
+
+%\begin{symbols}{lll} % Include a list of Symbols (a three column table)
+%\textcolor{white}{Blank line to prevent indent}\\
+%{\bcf Not an essential page.} &  & \\
+%$a$ & distance & \si{\meter} \\
+%$P$ & power & \si{\watt} (\si{\joule\per\second}) \\
+%Symbol & Name & Unit \\
+
+%\addlinespace % Gap to separate the Roman symbols from the Greek
+
+%$\omega$ & angular frequency & \si{\radian} \\
+
+%\end{symbols}
+
+%----------------------------------------------------------------------------------------
+%	ABSTRACT PAGE
+%----------------------------------------------------------------------------------------
+
+\begin{abstract}
+\addchaptertocentry{\abstractname} % Add the abstract to the table of contents
+Faraday rotation measures (RM) of extragalactic radio sources are key for understanding astrophysical magnetic fields (\cite{Beck_Bfield_Rev_2015}). ASKAP’s Polarisation Sky Survey of the Universe’s Magnetism (POSSUM) is measuring around 1 million RM. The density of these measurements in fields containing a high proportion of the Galactic plane is $\approx$ 60 
+$\%$ less compared to fields at higher Galactic latitudes (\cite{vanderwoude2024prototypefaradayrotationmeasure}). This dissertation describes work done to increase the density of RM within complex diffuse emission of the Galactic plane. The test field EMU1505-60 was re-imaged to suppress the diffuse emission and the sources were located by the source-finding algorithm PyBDSF. The POSSUM Analysis Pipeline, which utilises the RM tools package \cite{RMtools}, was used to perform RM synthesis on these sources, producing an RM catalogue for this field. The construction of an RM grid using this catalogue showed a rapid variation between $600$ and -$600 \,{\rm rad/m^2}$ across the field. Using this catalogue, structure function analysis was carried out to investigate the variance of the RM at different angular scales, concluding that there is a large variance between RM in this field, which increases over increasing angular scales. These results show the magnetic field of the Milky Way along the Galactic plane varies on scales of $10\,{\rm pc}$. The polarisation of the diffuse emission was also investigated using 3D RM synthesis techniques. Further inspection was also carried out on depolarisation canals, found during this investigation, by creating a gradient map to visualise the direction and magnitude of the gradient across the RM map and by mapping multiple peaks found within the map.
+\end{abstract}
+
+%----------------------------------------------------------------------------------------
+%	LAY ABSTRACT PAGE
+%----------------------------------------------------------------------------------------
+% A lay abstract is not a requirement, but if you'd want to include it
+% then it must go here. If you don't want to include it, just comment out
+% this chunk
+%%%
+%\begin{popularabstract}
+%\addchaptertocentry{\popularabstractname} % Add the abstract to the table of contents
+%The Thesis Abstract is written here. The page is kept centred vertically so can expand into the blank space above the title too. UoM requires that this is only a single page. UoM does {\bcf NOT} require a popular abstract. You can therefore remove this if you want\ldots
+%\end{popularabstract}
+%%%
+%----------------------------------------------------------------------------------------
+%	DECLARATION PAGE
+%----------------------------------------------------------------------------------------
+
+\begin{declaration}
+\addchaptertocentry{\authorshipname} % Add the declaration to the table of contents
+
+\noindent I, \authorname, declare that this dissertation titled, \enquote{\ttitle} and the work presented in it are my own. I confirm that:
+
+%% You WILL NEED TO CHANGE THIS!!! Go here to find out how:
+%% https://www.bmh.manchester.ac.uk/doctoral-academy/your-phd/thesis-submission/presentation-regulations/
+
+\begin{itemize} 
+\item This work was done wholly while in candidature for a research degree at this University.
+\item No part of this dissertation has previously been submitted for a degree or any other qualification at this University or any other institution.
+\item Where I have consulted the published work of others, this is always clearly attributed.
+\item Where I have quoted from the work of others, the source is always given. With the exception of such quotations, this dissertation is entirely my own work.
+\item I have acknowledged all main sources of help.
+\item Where the dissertation is based on work done by myself jointly with others, I have made clear exactly what was done by others and what I have contributed myself.\\
+\end{itemize}
+ 
+% \noindent Signed:\\
+% \rule[0.5em]{25em}{0.5pt} % This prints a line for the signature
+ 
+% \noindent Date:\\
+% \rule[0.5em]{25em}{0.5pt} % This prints a line to write the date
+\end{declaration}
+
+% \cleardoublepage
+
+%----------------------------------------------------------------------------------------
+%	COPYRIGHT STATEMENT PAGE
+%----------------------------------------------------------------------------------------
+%% These exact words are required by UoM in this exact spot.
+
+\begin{copyrightstatement}
+
+\addchaptertocentry{\copyrightname} % Add the declaration to the table of contents
+
+\begin{enumerate}[label=(\roman*)]
+\item The author of this dissertation (including any appendices and/or schedules to this dissertation) owns certain copyright or related rights in it (the “Copyright”) and they have given the University of Manchester certain rights to use such Copyright, including for administrative purposes.\\[0.3cm]
+\item Copies of this dissertation, either in full or in extracts and whether in hard or electronic copy, may be made only in accordance with the Copyright, Designs and Patents Act 1988 (as amended) and regulations issued under it or, where appropriate, in accordance with licensing agreements which the University has from time to time. This page must form part of any such copies made.\\[0.3cm]
+\item The ownership of certain Copyright, patents, designs, trademarks and other intellectual property (the “Intellectual Property”) and any reproductions of copyright works in the dissertation, for example graphs and tables (“Reproductions”), which may be described in this dissertation, may not be owned by the author and may be owned by third parties. Such Intellectual Property and Reproductions cannot and must not be made available for use without the prior written permission of the owner(s) of the relevant Intellectual Property and/or Reproductions.\\[0.3cm]
+\item Further information on the conditions under which disclosure,
+publication and commercialisation of this dissertation, the Copyright
+and any Intellectual Property and/or Reproductions described in
+it may take place is available in the University IP Policy (see
+\href{http://documents.manchester.ac.uk/DocuInfo.aspx?DocID=24420}{documents.manchester.ac.uk}), in any relevant Dissertation restriction declarations deposited in the
+University Library, The University Library’s regulations (see
+\href{http://www.library.manchester.ac.uk/about/regulations/}{www.library.manchester.ac.uk/about/regulations/}) and in
+The University’s policy on Presentation of Dissertations
+\end{enumerate}
+\end{copyrightstatement}
+
+% \cleardoublepage
+
+% %----------------------------------------------------------------------------------------
+% %	QUOTATION PAGE
+% %----------------------------------------------------------------------------------------
+
+% \vspace*{0.2\textheight}
+
+% \noindent\enquote{\itshape Thanks to my solid academic training, today I can write hundreds of words on virtually any topic without possessing a shred of information, which is how I got a good job in journalism.}\bigbreak
+
+% \hfill Dave Barry
+
+%----------------------------------------------------------------------------------------
+%	ACKNOWLEDGEMENTS
+%----------------------------------------------------------------------------------------
+
+\begin{acknowledgements}
+\addchaptertocentry{\acknowledgementname} % Add the acknowledgements to the table of contents
+
+I would like to thank my supervisor Dr Paddy Leahy, for guiding me through the research done for this dissertation. I would also like to thank my advisor, Dr Neal Jackson, and the program director, Dr. Laura Wolz, for all their guidance and support. I would also like to thank Dr Vasu Shaw for her peak finding code and her advice and mentorship. I would like to thank Laura Driessen for creating the LaTeX template for this dissertation. 
+This dissertation uses data obtained from Inyarrimanha
+Ilgari Bundara, the CSIRO Murchison Radio-astronomy Observatory. I acknowledge the Wajarri Yamaji People as the
+Traditional Owners and native title holders of the Observatory
+site. CSIRO’s ASKAP radio telescope is part of the Australia
+Telescope National Facility (https://ror.org/05qajvd42). Operation of ASKAP is funded by the Australian Government
+with support from the National Collaborative Research Infrastructure Strategy. ASKAP uses the resources of the Pawsey
+Supercomputing Research Centre. Establishment of ASKAP,
+Inyarrimanha Ilgari Bundara, the CSIRO Murchison Radio-astronomy Observatory and the Pawsey Supercomputing Research Centre are initiatives of the Australian Government,
+with support from the Government of Western Australia and
+the Science and Industry Endowment Fund. I would also like to acknowledge the RM-tools package and its creators Cormac R. Purcell and Cameron Van Eck.
+And last, but not least, I would like to thank my friends and family for all their support. 
+\end{acknowledgements}
+
+
+%----------------------------------------------------------------------------------------
+%	DEDICATION
+%----------------------------------------------------------------------------------------
+
+%\dedicatory{Dedicated to } 
+%\addcontentsline{toc}{chapter}{Dedication}
+
+%\changeurlcolor{urlcolor}
+
+%----------------------------------------------------------------------------------------
+%	PREFACE PAGE
+%----------------------------------------------------------------------------------------
+%% Not required.
+
+\begin{prefacestatement}
+
+\addchaptertocentry{\prefacename} % Add the declaration to the table of contents
+
+My research experience began at school, with my HPQ project which really cemented my fascination with all things astrophysics. After a brief pit stop researching the potential for harnessing the space environment for drug development as part of my time volunteering at Woolsthorpe Manor I landed firmly back on astrophysics. My next research opportunities I seized during my time at the University of Warwick completing my BSc in Physics with Astrophysics. In the summer after my second year I completed a short project investigating a potential supernovae progenitor system. Then, in my third year, I used NGTS data to search for eclipsing binary systems for my Bachelor's dissertation. After completing my degree at Warwick my journey in research continued as I headed to the University of Manchester. At Manchester I have had the amazing opportunity to work towards being able to create this dissertation. Please enjoy the read!
+
+\end{prefacestatement}
+
+%----------------------------------------------------------------------------------------
+%	THESIS CONTENT - CHAPTERS
+%----------------------------------------------------------------------------------------
+
+%\mainmatter % Begin numeric (1,2,3...) page numbering
+
+\pagestyle{thesis} % Return the page headers back to the "thesis" style
+
+% Include the chapters of the thesis as separate files from the Chapters folder
+% Uncomment the lines as you write the chapters
+
+\include{Thesis_Template/Chapters/Introduction}
+\include{Thesis_Template/Chapters/Source_Finding}
+\include{Thesis_Template/Chapters/RM_Synth} 
+\include{Thesis_Template/Chapters/Canals}
+%\include{Thesis_Template/Chapters/Discussion} 
+\include{Thesis_Template/Chapters/Conclusion} 
+
+%----------------------------------------------------------------------------------------
+%	THESIS CONTENT - APPENDICES
+%----------------------------------------------------------------------------------------
+
+\appendix % Cue to tell LaTeX that the following "chapters" are Appendices
+
+% Include the appendices of the thesis as separate files from the Appendices folder
+% Uncomment the lines as you write the Appendices
+
+\include{Appendices/AppendixB}
+\include{Appendices/AppendixA}
+
+%\include{Appendices/AppendixC}
+
+%----------------------------------------------------------------------------------------
+%	BIBLIOGRAPHY
+%----------------------------------------------------------------------------------------
+
+% \printbibliography[heading=bibintoc]
+\label{Bibliography}  % Change the left side page header to "Bibliography"
+\bibliographystyle{unsrtnat}  % Use the "unsrtnat" BibTeX style for formatting the Bibliography
+\bibliography{Bibliography}
+
+%----------------------------------------------------------------------------------------
+
+\end{document}  
